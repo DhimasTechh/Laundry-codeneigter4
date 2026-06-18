@@ -1,0 +1,346 @@
+CRITICAL - 2026-06-04 13:54:22 --> Error: Class "Locale" not found
+[Method: GET, Route: /]
+in SYSTEMPATH\CodeIgniter.php on line 189.
+ 1 SYSTEMPATH\Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+ 2 SYSTEMPATH\Boot.php(163): CodeIgniter\Boot::initializeCodeIgniter()
+ 3 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+CRITICAL - 2026-06-04 13:54:23 --> ErrorException: Uncaught Error: Class "Locale" not found in C:\xampp\htdocs\belajar_ci\system\I18n\TimeTrait.php:75
+Stack trace:
+#0 C:\xampp\htdocs\belajar_ci\system\I18n\TimeTrait.php(116): CodeIgniter\I18n\Time->__construct(NULL, NULL, NULL)
+#1 C:\xampp\htdocs\belajar_ci\system\HTTP\ResponseTrait.php(394): CodeIgniter\I18n\Time::now()
+#2 C:\xampp\htdocs\belajar_ci\system\HTTP\ResponseTrait.php(372): CodeIgniter\HTTP\Response->sendHeaders()
+#3 C:\xampp\htdocs\belajar_ci\system\Debug\ExceptionHandler.php(95): CodeIgniter\HTTP\Response->send()
+#4 C:\xampp\htdocs\belajar_ci\system\Debug\Exceptions.php(151): CodeIgniter\Debug\ExceptionHandler->handle(Object(Error), Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), 500, 1)
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(Error))
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 C:\xampp\htdocs\belajar_ci\system\Boot.php(404): CodeIgniter\CodeIgniter->initialize()
+#1 C:\xampp\htdocs\belajar_ci\system\Boot.php(163): CodeIgniter\Boot::initializeCodeIgniter()
+#2 C:\xampp\htdocs\belajar_ci\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#3 {main}
+[Method: GET, Route: /]
+in SYSTEMPATH\I18n\TimeTrait.php on line 75.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+ERROR - 2026-06-04 13:56:23 --> Table 'db_ci4.migrations' doesn't exist in engine
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('SELECT *
+FROM `migrations`
+WHERE `namespace` = \'App\'
+ORDER BY `id` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `migrations`
+WHERE `namespace` = \'App\'
+ORDER BY `id` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `migrations`
+WHERE `namespace` = \'App\'
+ORDER BY `id` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `migrations`
+WHERE `namespace` = :namespace:
+ORDER BY `id` ASC', [...], false)
+ 5 SYSTEMPATH\Database\MigrationRunner.php(713): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Database\MigrationRunner.php(195): CodeIgniter\Database\MigrationRunner->getHistory('')
+ 7 SYSTEMPATH\Commands\Database\Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(null)
+ 8 SYSTEMPATH\CLI\SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::CodeIgniter\Commands\Database\{closure}()
+ 9 SYSTEMPATH\Commands\Database\Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+10 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run([])
+11 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', [])
+12 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+13 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+14 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+ERROR - 2026-06-04 14:12:24 --> Can't create database 'db_ci4'; database exists
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 300.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(300): mysqli->query('CREATE DATABASE `db_ci4` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(910): CodeIgniter\Database\MySQLi\Connection->execute('CREATE DATABASE `db_ci4` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci')
+ 3 SYSTEMPATH\Database\BaseConnection.php(827): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE DATABASE `db_ci4` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci')
+ 4 SYSTEMPATH\Database\Forge.php(232): CodeIgniter\Database\BaseConnection->query('CREATE DATABASE `db_ci4` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci')
+ 5 SYSTEMPATH\Commands\Database\CreateDatabase.php(136): CodeIgniter\Database\Forge->createDatabase('db_ci4')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\CreateDatabase->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:create', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:02 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "userName" is deprecated, use "userName()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'userName', 'userName')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(15): Faker\Generator->__get('userName')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+WARNING - 2026-06-04 14:16:03 --> [DEPRECATED] Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead. in VENDORPATH\symfony\deprecation-contracts\function.php on line 25.
+ 1 VENDORPATH\symfony\deprecation-contracts\function.php(25): trigger_error('Since fakerphp/faker 1.14: Accessing property "email" is deprecated, use "email()" instead.', 16384)
+ 2 VENDORPATH\fakerphp\faker\src\Faker\Generator.php(962): trigger_deprecation('fakerphp/faker', '1.14', 'Accessing property "%s" is deprecated, use "%s()" instead.', 'email', 'email')
+ 3 APPPATH\Database\Seeds\UserSeeder.php(16): Faker\Generator->__get('email')
+ 4 SYSTEMPATH\Database\Seeder.php(155): App\Database\Seeds\UserSeeder->run()
+ 5 SYSTEMPATH\Commands\Database\Seed.php(79): CodeIgniter\Database\Seeder->call('App\\Database\\Seeds\\UserSeeder')
+ 6 SYSTEMPATH\CLI\Commands.php(74): CodeIgniter\Commands\Database\Seed->run([])
+ 7 SYSTEMPATH\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('db:seed', [...])
+ 8 SYSTEMPATH\Boot.php(442): CodeIgniter\CLI\Console->run()
+ 9 SYSTEMPATH\Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+10 ROOTPATH\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+DEBUG - 2026-06-04 14:30:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:31:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:31:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:31:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:31:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:31:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:32:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:32:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:32:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:32:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:32:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:32:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:32:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:33:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:33:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:33:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:33:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:35:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:35:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:35:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:35:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:35:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:37:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:43:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:45:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:46:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:50:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:50:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:50:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:50:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:51:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:51:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:51:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:52:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:52:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:56:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:57:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:57:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 14:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:00:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:03:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:03:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:07:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:07:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:07:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:07:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-06-04 15:07:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
