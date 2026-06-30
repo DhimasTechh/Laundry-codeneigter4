@@ -32,11 +32,16 @@ if ($this->validate($rules)) {
             if ($dataUser) {
 	            if (password_verify($password, $dataUser['password'])) {
                 session()->set([
-                    'username' => $dataUser['username'],
-                    'role' => $dataUser['role'],
-                    'isLoggedIn' => TRUE
+                    'username'   => $dataUser['username'],
+                    'role'       => $dataUser['role'],
+                    'isLoggedIn' => TRUE,
+                    'logged_in'  => TRUE,
                 ]);
 
+                // Redirect berdasarkan role
+                if ($dataUser['role'] === 'admin') {
+                    return redirect()->to(base_url('admin/dashboard'));
+                }
                 return redirect()->to(base_url('/'));
             } else {
                 session()->setFlashdata('failed', 'Username & Password Salah');
