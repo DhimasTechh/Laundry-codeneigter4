@@ -4,6 +4,8 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\LayananModel;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class Layanan extends BaseController
 {
@@ -89,5 +91,35 @@ class Layanan extends BaseController
         $this->layananModel->delete($id);
 
         return redirect()->to(site_url('admin/layanan'))->with('success', 'Layanan berhasil dihapus.');
+    }
+
+    // ── Ekspor PDF ──────────────────────────────────────────────────────────
+    public function download()
+    {
+        $products = $this->layananModel->orderBy('created_at', 'ASC')->findAll();
+
+        // Render view HTML untuk PDF
+        $html = view('admin/layanan/pdf_export', ['products' => $products]);
+
+        // Konfigurasi Dompdf
+        $options = new Options();
+        $options->set('defaultFont', 'DejaVu Sans');
+        $options->set('isRemoteEnabled', false);
+        $options->set('isHtml5ParserEnabled', true);
+        $options->set('isFontSubsettingEnabled', true);
+        $options->set('chroot', FCPATH);
+
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html, 'UTF-8');
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        $filename = 'laporan-layanan-laundry-' . date('Ymd-His') . '.pdf';
+
+        // Stream PDF ke browser (download otomatis)
+        $dompdf->stream($filename, [
+            'Attachment' => true,
+        ]);
+        exit;
     }
 }

@@ -423,6 +423,67 @@
 
 /* Search no-result */
 .hidden-card { display: none !important; }
+
+/* ── Btn Ekspor PDF ─────────────────────────────── */
+.btn-export-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    color: #fff;
+    font-weight: 700;
+    font-size: .88rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(220,38,38,.30);
+    transition: transform .18s, box-shadow .18s, opacity .18s;
+    text-decoration: none;
+}
+.btn-export-pdf:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(220,38,38,.42);
+    color: #fff;
+}
+.btn-export-pdf:active {
+    transform: translateY(0);
+    opacity: .85;
+}
+
+/* ── PDF Loading Overlay ─────────────────────────── */
+.pdf-loading-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,.55);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+.pdf-loading-overlay.show { display: flex; }
+.pdf-spinner {
+    width: 52px;
+    height: 52px;
+    border: 4px solid rgba(255,255,255,.2);
+    border-top-color: #f59e0b;
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.pdf-loading-text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -.01em;
+}
+.pdf-loading-sub {
+    color: rgba(255,255,255,.55);
+    font-size: .82rem;
+}
 </style>
 
 <!-- Flash Messages -->
@@ -484,9 +545,23 @@ $avgHarga     = $totalLayanan > 0 ? $totalHarga / $totalLayanan : 0;
         <i class="bi bi-search"></i>
         <input type="text" id="searchInput" placeholder="Cari layanan…" oninput="filterCards(this.value)">
     </div>
-    <button class="btn-add" data-bs-toggle="modal" data-bs-target="#addModal">
-        <i class="bi bi-plus-lg"></i> Tambah Layanan
-    </button>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+        <a href="<?= site_url('admin/layanan/download') ?>" id="btnExportPdf"
+           class="btn-export-pdf"
+           onclick="showPdfLoading(event, this)">
+            <i class="bi bi-file-earmark-pdf-fill"></i> Ekspor PDF
+        </a>
+        <button class="btn-add" data-bs-toggle="modal" data-bs-target="#addModal">
+            <i class="bi bi-plus-lg"></i> Tambah Layanan
+        </button>
+    </div>
+</div>
+
+<!-- PDF Loading Overlay -->
+<div class="pdf-loading-overlay" id="pdfLoadingOverlay">
+    <div class="pdf-spinner"></div>
+    <div class="pdf-loading-text">Membuat PDF…</div>
+    <div class="pdf-loading-sub">Mohon tunggu, sedang memproses data layanan.</div>
 </div>
 
 <!-- Service Grid -->
@@ -708,6 +783,28 @@ function filterCards(query) {
     const el = document.getElementById(id);
     if (el) setTimeout(() => el.remove(), 4000);
 });
+
+/* ── PDF Loading Overlay ─────────────────────────── */
+function showPdfLoading(e, el) {
+    // Tampilkan overlay loading
+    const overlay = document.getElementById('pdfLoadingOverlay');
+    if (overlay) overlay.classList.add('show');
+
+    // Sembunyikan overlay setelah 8 detik (fallback),
+    // karena download otomatis tidak memicu event load di halaman.
+    setTimeout(() => {
+        if (overlay) overlay.classList.remove('show');
+    }, 8000);
+
+    // Juga hide saat tab kembali ke focus (setelah download mulai)
+    const onFocus = () => {
+        setTimeout(() => {
+            if (overlay) overlay.classList.remove('show');
+        }, 1500);
+        window.removeEventListener('focus', onFocus);
+    };
+    window.addEventListener('focus', onFocus);
+}
 </script>
 
 <?= $this->endSection() ?>
